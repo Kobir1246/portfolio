@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shahriar Kobir Sabbir — Software &amp; ML Engineer</title>
+<meta name="description" content="Portfolio of Shahriar Kobir Sabbir — CSE graduate building machine learning systems, embedded hardware, and mobile apps." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0b2545;
+  --bg-deep: #071a34;
+  --surface: #0f2e56;
+  --surface-hover: #123a6b;
+  --grid-line: rgba(159, 184, 217, 0.12);
+  --line: rgba(159, 184, 217, 0.28);
+  --line-strong: rgba(159, 184, 217, 0.48);
+  --ink: #f4f8fb;
+  --ink-muted: #9fb8d9;
+  --ink-dim: #6f8bb0;
+  --accent: #ffc857;
+  --accent-ink: #1a1300;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --max-width: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
+.mono { font-family: var(--font-mono); }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* corner registration marks */
+.reg-corners { position: relative; }
+.reg-corners::before, .reg-corners::after, .reg-corners .rc-tr, .reg-corners .rc-br {
+  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none;
+}
+.reg-corners::before { top: -1px; left: -1px; border-top: 2px solid var(--line-strong); border-left: 2px solid var(--line-strong); }
+.reg-corners::after { bottom: -1px; left: -1px; border-bottom: 2px solid var(--line-strong); border-left: 2px solid var(--line-strong); }
+.reg-corners .rc-tr { top: -1px; right: -1px; border-top: 2px solid var(--line-strong); border-right: 2px solid var(--line-strong); }
+.reg-corners .rc-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--line-strong); border-right: 2px solid var(--line-strong); }
+
+/* header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 37, 69, 0.82);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand {
+  font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.02em;
+  text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 8px;
+}
+.brand-dot { width: 8px; height: 8px; background: var(--accent); display: inline-block; }
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 13px; }
+.nav-links a { text-decoration: none; color: var(--ink-muted); transition: color 0.15s ease; }
+.nav-links a:hover { color: var(--accent); }
+.nav-links .idx { color: var(--ink-dim); margin-right: 6px; }
+
+/* hero */
+.hero { padding: 88px 0 56px; }
+.hero-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.hero-kicker .pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: #6fcf97;
+  box-shadow: 0 0 0 0 rgba(111, 207, 151, 0.6); animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(111, 207, 151, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(111, 207, 151, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(111, 207, 151, 0); }
+}
+.hero-title {
+  font-family: var(--font-sans); font-weight: 800; font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 18px;
+}
+.hero-title .accent { color: var(--accent); }
+.hero-lede { max-width: 640px; font-size: 18px; line-height: 1.6; color: var(--ink-muted); margin: 0 0 36px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.btn {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.03em; padding: 12px 20px;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--ink);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.15s ease;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.btn.primary:hover { background: transparent; color: var(--accent); }
+
+.title-block { border: 1px solid var(--line); background: var(--surface); padding: 0; }
+.tb-row { display: grid; grid-template-columns: 160px 1fr; border-bottom: 1px solid var(--line); }
+.tb-row:last-child { border-bottom: none; }
+.tb-key {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-dim); padding: 12px 16px; border-right: 1px solid var(--line);
+}
+.tb-val { font-family: var(--font-mono); font-size: 13px; color: var(--ink); padding: 12px 16px; }
+.tb-val a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--ink-dim); }
+.tb-val a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* section shell */
+.section { padding: 72px 0; border-top: 1px solid var(--line); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+.section-title { font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.01em; margin: 6px 0 0; }
+.section-note { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-dim); max-width: 320px; text-align: right; }
+
+/* about */
+.about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
+.about-body p { font-size: 16.5px; line-height: 1.75; color: var(--ink-muted); margin: 0 0 18px; }
+.edu-card { border: 1px solid var(--line); padding: 22px; background: var(--surface); }
+.edu-degree { font-weight: 700; font-size: 16px; margin: 0 0 4px; }
+.edu-school { color: var(--ink-muted); font-size: 14px; margin: 0 0 14px; }
+.edu-meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--ink-dim); border-top: 1px dashed var(--line); padding-top: 12px; }
+.edu-meta .cgpa { color: var(--accent); }
+
+/* skills */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.skill-cell { background: var(--bg-deep); padding: 22px; }
+.skill-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 14px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--font-mono); font-size: 12.5px; padding: 5px 10px; border: 1px solid var(--line); color: var(--ink-muted); }
+
+/* projects */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.project-card {
+  border: 1px solid var(--line); background: var(--surface); padding: 24px; display: flex; flex-direction: column;
+  gap: 14px; text-decoration: none; color: var(--ink); transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+.project-card:hover { border-color: var(--accent); background: var(--surface-hover); transform: translateY(-2px); }
+.project-card.featured { grid-column: span 2; }
+@media (max-width: 720px) { .project-card.featured { grid-column: span 1; } }
+.pc-top { display: flex; align-items: center; justify-content: space-between; }
+.pc-spec { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--accent); }
+.pc-metric { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); border: 1px solid var(--line); padding: 3px 8px; }
+.pc-title { font-size: 19px; font-weight: 700; margin: 0; line-height: 1.3; }
+.pc-summary { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0; flex: 1; }
+.pc-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.pc-stack span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); border: 1px solid var(--line); padding: 3px 8px; }
+.pc-link { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-muted); display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+.project-card:hover .pc-link { color: var(--accent); }
+
+/* contact / footer */
+.contact-block { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.contact-title { font-size: clamp(30px, 5vw, 46px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 18px; }
+.contact-lede { color: var(--ink-muted); font-size: 16px; line-height: 1.65; max-width: 480px; margin: 0 0 28px; }
+.contact-links { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); }
+.contact-link-row {
+  display: flex; justify-content: space-between; align-items: center; padding: 16px 20px;
+  border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink);
+  font-family: var(--font-mono); font-size: 13.5px; transition: background 0.15s ease, color 0.15s ease;
+}
+.contact-link-row:last-child { border-bottom: none; }
+.contact-link-row:hover { background: var(--surface); color: var(--accent); }
+.contact-link-row .k { color: var(--ink-dim); }
+
+.site-footer { border-top: 1px solid var(--line); padding: 28px 0; }
+.footer-row { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; color: var(--ink-dim); flex-wrap: wrap; gap: 10px; }
+
+@media (max-width: 760px) {
+  .about-grid, .contact-block { grid-template-columns: 1fr; }
+  .tb-row { grid-template-columns: 130px 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="brand-dot"></span>S.KOBIR</a>
+    <ul class="nav-links">
+      <li><a href="#about"><span class="idx">01</span>About</a></li>
+      <li><a href="#skills"><span class="idx">02</span>Skills</a></li>
+      <li><a href="#projects"><span class="idx">03</span>Projects</a></li>
+      <li><a href="#contact"><span class="idx">04</span>Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-kicker">
+      <span class="pulse"></span>
+      <span class="eyebrow">Open to internships &amp; junior ML / SWE roles</span>
+    </div>
+    <h1 class="hero-title">
+      Shahriar Kobir Sabbir<br />
+      <span class="accent">Software &amp; Machine Learning Engineer</span>
+    </h1>
+    <p class="hero-lede">CSE Graduate — building data-driven systems with Python and real-world datasets.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#projects">View projects →</a>
+      <a class="btn" href="mailto:shahriarkobir453@gmail.com">Get in touch</a>
+      <a class="btn" href="https://github.com/Kobir1246" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+
+    <div class="title-block reg-corners">
+      <span class="rc-tr"></span><span class="rc-br"></span>
+      <div class="tb-row"><div class="tb-key">Name</div><div class="tb-val">Md. Shahriar Kobir Sabbir</div></div>
+      <div class="tb-row"><div class="tb-key">Location</div><div class="tb-val">Dhaka, Bangladesh</div></div>
+      <div class="tb-row"><div class="tb-key">Email</div><div class="tb-val"><a href="mailto:shahriarkobir453@gmail.com">shahriarkobir453@gmail.com</a></div></div>
+      <div class="tb-row"><div class="tb-key">GitHub</div><div class="tb-val"><a href="https://github.com/Kobir1246" target="_blank" rel="noreferrer">github.com/Kobir1246</a></div></div>
+      <div class="tb-row"><div class="tb-key">Status</div><div class="tb-val">Graduating 2026 · Daffodil International University</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">01 — About</span>
+        <h2 class="section-title">From dataset to deployment</h2>
+      </div>
+      <p class="section-note">Final-year CSE research on crop yield prediction using ensemble ML techniques.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>B.Sc. in Computer Science &amp; Engineering from Daffodil International University, with hands-on experience across machine learning, Flutter mobile development, and hardware-software integrated systems. My final year research focused on crop yield prediction using ensemble ML techniques. I like taking a system from raw data or a soldering iron all the way to something a real person can use.</p>
+        <p>I work across the stack that a real project actually needs — cleaning and modeling data in Python, wiring up microcontrollers for a hardware prototype, or shipping a Flutter app end to end. What I enjoy most is the middle part most people skip: catching a leaky feature before it inflates your R², or making sure a model that works in the lab still works on data it's never seen.</p>
+      </div>
+      <div class="edu-card reg-corners">
+        <span class="rc-tr"></span><span class="rc-br"></span>
+        <p class="edu-degree">B.Sc. in Computer Science &amp; Engineering</p>
+        <p class="edu-school">Daffodil International University, Dhaka</p>
+        <div class="edu-meta"><span>2022 – 2026</span><span class="cgpa">CGPA 3.73 / 4.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">02 — Stack</span>
+        <h2 class="section-title">Tools of the trade</h2>
+      </div>
+      <p class="section-note">Grouped by where I actually use them, not alphabetically.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <div class="skill-label">Languages</div>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">Dart</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">ML &amp; Data</div>
+        <div class="chip-row"><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">SHAP</span><span class="chip">Flask</span><span class="chip">Streamlit</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Mobile &amp; Web</div>
+        <div class="chip-row"><span class="chip">Flutter</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">PHP</span><span class="chip">JavaScript</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Tools &amp; VCS</div>
+        <div class="chip-row"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Arduino IDE</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Database</div>
+        <div class="chip-row"><span class="chip">MySQL</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Concepts</div>
+        <div class="chip-row"><span class="chip">Data Structures</span><span class="chip">Algorithms</span><span class="chip">OOP</span><span class="chip">Compiler Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">03 — Selected work</span>
+        <h2 class="section-title">Eight builds, four domains</h2>
+      </div>
+      <p class="section-note">ML systems, embedded hardware, mobile, and systems programming.</p>
+    </div>
+    <div class="project-grid">
+
+      <a class="project-card featured" href="https://github.com/Kobir1246/Crop-Yield-prediction-using-machine-learning" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-01 · Capstone</span><span class="pc-metric">R² 0.836</span></div>
+        <h3 class="pc-title">Crop Yield Prediction System</h3>
+        <p class="pc-summary">ML framework predicting crop yield across all 64 districts of Bangladesh from 5,608 SPAS records. Evaluated 8 regression models — Tuned XGBoost reached R² = 0.836 — and shipped as a Flask decision-support tool with SHAP explainability for farmers and policymakers.</p>
+        <div class="pc-stack"><span>Python</span><span>XGBoost</span><span>Scikit-learn</span><span>Pandas</span><span>SHAP</span><span>Flask</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/Anomaly-detection-using-machine-learning" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-02 · Personal project</span><span class="pc-metric">Risk classifier</span></div>
+        <h3 class="pc-title">Credit Default Prediction System</h3>
+        <p class="pc-summary">Classifies customers by credit-default risk from financial and behavioral features, serving real-time predictions through an interactive web interface.</p>
+        <div class="pc-stack"><span>Python</span><span>Machine Learning</span><span>Flask</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card featured" href="https://github.com/Kobir1246/Hand_Gesture_Wheelchair" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-03 · Hardware project</span><span class="pc-metric">5 gesture commands</span></div>
+        <h3 class="pc-title">Hand Gesture Controlled Wheelchair</h3>
+        <p class="pc-summary">Wireless assistive-mobility prototype: a glove transmitter (Arduino Nano + MPU6050) reads hand orientation and streams commands over 2.4GHz RF to a wheelchair-mounted receiver (Arduino Uno + L298N) for real-time motor control.</p>
+        <div class="pc-stack"><span>Arduino</span><span>Embedded C++</span><span>nRF24L01</span><span>MPU6050</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/ProjectManagement" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-04 · Mobile app</span><span class="pc-metric">Offline-first</span></div>
+        <h3 class="pc-title">TeamFlow — Project &amp; Team Management App</h3>
+        <p class="pc-summary">Cross-platform app for managing projects, tasks, and teams — with local notification reminders, a command-based assistant for quick task creation, and fully offline persistent storage.</p>
+        <div class="pc-stack"><span>Flutter</span><span>Dart</span><span>SharedPreferences</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/Custom-Compiler-design" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-05 · Systems project</span><span class="pc-metric">4 compiler phases</span></div>
+        <h3 class="pc-title">Mini Compiler in C</h3>
+        <p class="pc-summary">A from-scratch compiler for a custom language, covering lexical analysis, syntax parsing, symbol table management, and three-address intermediate code generation.</p>
+        <div class="pc-stack"><span>C</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/Study-room-with-openGL" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-06 · Graphics project</span><span class="pc-metric">Real-time 3D</span></div>
+        <h3 class="pc-title">3D Study Room Simulation</h3>
+        <p class="pc-summary">An interactive 3D environment exploring modeling, transformations, lighting, and animation — furniture, lighting systems, and a rotating ceiling fan rendered in real time.</p>
+        <div class="pc-stack"><span>C++</span><span>OpenGL</span><span>GLUT</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/Super-shop-management" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-07 · Web project</span><span class="pc-metric">Inventory + sales</span></div>
+        <h3 class="pc-title">Super Shop Management System</h3>
+        <p class="pc-summary">A web-based retail management system handling inventory, sales, and store operations on a MySQL-backed database layer.</p>
+        <div class="pc-stack"><span>HTML</span><span>PHP</span><span>MySQL</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Kobir1246/Library-Management-system" target="_blank" rel="noreferrer">
+        <div class="pc-top"><span class="pc-spec">SPEC-08 · Python project</span><span class="pc-metric">Lending workflow</span></div>
+        <h3 class="pc-title">Library Management System</h3>
+        <p class="pc-summary">A system for managing book records, member accounts, and lending workflows for a library.</p>
+        <div class="pc-stack"><span>Python</span></div>
+        <span class="pc-link">View source →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="contact-block">
+      <div>
+        <span class="eyebrow">04 — Contact</span>
+        <h2 class="contact-title">Let's build something.</h2>
+        <p class="contact-lede">Open to internships and junior roles in machine learning or software engineering. The fastest way to reach me is email.</p>
+        <a class="btn primary" href="mailto:shahriarkobir453@gmail.com">shahriarkobir453@gmail.com</a>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link-row" href="mailto:shahriarkobir453@gmail.com"><span class="k">Email</span><span>shahriarkobir453@gmail.com</span></a>
+        <a class="contact-link-row" href="https://github.com/Kobir1246" target="_blank" rel="noreferrer"><span class="k">GitHub</span><span>github.com/Kobir1246</span></a>
+        <a class="contact-link-row" href="tel:+8801924651087"><span class="k">Phone</span><span>+880-1924651087</span></a>
+        <div class="contact-link-row" style="cursor:default;"><span class="k">Location</span><span>Dhaka, Bangladesh</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span id="year-copy">© Shahriar Kobir Sabbir</span>
+    <span class="mono">Static HTML build</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year-copy').textContent = '© ' + new Date().getFullYear() + ' Shahriar Kobir Sabbir';
+</script>
+
+</body>
+</html>
