@@ -418,6 +418,23 @@ header {
     border-radius: 20px;
 }
 
+.live-demo {
+    font-size: 11px;
+    font-weight: bold;
+    color: #111111;
+    background: linear-gradient(90deg, #F59E0B, #FBBF24);
+    border: 1px solid #F59E0B;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    transition: 0.3s ease;
+}
+
+.live-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.6);
+}
+
 .project-buttons {
     justify-content: flex-start;
 }
